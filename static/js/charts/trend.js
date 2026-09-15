@@ -45,6 +45,17 @@ export class TrendChart {
                     fontWeight: "bold",
                     fontFamily: "monospace",
                 },
+            }, {
+                type: "text",
+                right: 25,
+                top: 42,
+                style: {
+                    text: "",
+                    fill: "#ff3333",
+                    fontSize: 14,
+                    fontWeight: "bold",
+                    fontFamily: "monospace",
+                },
             }],
             series: [
                 {
@@ -114,8 +125,12 @@ export class TrendChart {
         }
         var avg = Math.round((kpis.throughputA + kpis.throughputB) / 2);
         if (avg < 0) avg = 0;
+        var off = (kpis.power ?? 1) < 0.5;
         this.chart.setOption({
-            graphic: [{ style: { text: avg + "%" } }],
+            graphic: [
+                { style: { text: avg + "%" } },
+                { style: { text: off ? "DISCONNECTED" : "" } }
+            ],
             xAxis: { data: this.dataA.map((_, i) => i) },
             series: [sA, sB],
         });

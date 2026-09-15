@@ -40,6 +40,7 @@ function frame(ts) {
                 throughputA: kpis.throughputA + (Math.random() - 0.5) * j,
                 throughputB: kpis.throughputB + (Math.random() - 0.5) * j,
                 chaos: kpis.chaos,
+                power: kpis.power,
             };
             charts[0].update(trendKpis);
             lastTrendPush = ts;

@@ -76,7 +76,7 @@ export class KPIEngine {
         // Volatility: constant & small, with periodic gentle pulses
         const t = Date.now() / 1000;
         const breath = 0.5 + 0.3 * Math.sin(t * 0.4) + 0.2 * Math.sin(t * 0.17);
-        const trendAmp = (2.5 + breath * 5) * P * cm;
+        const trendAmp = (2.5 + breath * 12) * P * cm;
         const baseT = L * 100 * P;
 
         return {
